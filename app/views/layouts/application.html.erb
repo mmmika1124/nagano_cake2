@@ -11,6 +11,60 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <ul class="navbar-nav ml-auto">
+          <% if customer_signed_in? %>
+            <li>
+              ﾏｲﾍﾟｰｼﾞ
+            </li>
+            <li>
+              商品一覧
+            </li>
+            <li>
+              カート
+            </li>
+            <li>
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+            </li>
+          <% elsif admin_signed_in? %>
+            <li>
+              商品一覧
+            </li>
+            <li>
+              会員一覧
+            </li>
+            <li>
+              注文履歴一覧
+            </li>
+            <li>
+              <%= link_to "ジャンル一覧", admin_genres_path %>
+            </li>
+            <li>
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "About", about_path %>
+            </li>
+            <li>
+              商品一覧
+            </li>
+            <li>
+              <%= link_to "新規登録", new_customer_registration_path %>
+            </li>
+            <li>
+              <%= link_to "ログイン", new_customer_session_path %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <div class="text-center">©saikai mika</div>
+    </footer>
   </body>
 </html>
