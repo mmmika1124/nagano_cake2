@@ -1,7 +1,7 @@
 <h1>商品新規登録</h1>
 <%= form_with model:@item, url: admin_items_path, method: :POST, local: true do |f| %>
   <label>商品画像</label>
-  <%= f.file_field :image_id, accept: "image/*" %>
+  <%= f.attachment_field :image %>
   <br>
   <label>商品名</label>
   <%= f.text_field :name %>
