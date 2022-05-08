@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-4">
-      <%= attachment_image_tag @item, :image, format: 'jpg', size: "100x100" %>
+      <%= attachment_image_tag @item, :image, format: 'jpg', size: "300x300" %>
     </div>
     <div class="col-5">
       <table>
@@ -37,5 +37,8 @@
         </tr>
       </table>
     </div>
+  </div>
+  <div class="text-center">
+    <%= link_to "編集する", edit_admin_item_path(@item.id) %>
   </div>
 </div>
