@@ -1,14 +1,5 @@
 <h1>商品新規登録</h1>
 
-<% if @item.errors.any? %>
-  <%= @item.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @item.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <%= form_with model:@item, url: admin_items_path, method: :POST, local: true do |f| %>
   <label>商品画像</label>
   <%= f.attachment_field :image %>
