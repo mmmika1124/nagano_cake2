@@ -1,3 +1,24 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.bg-image{
+  width: 900px;
+  height: 600px;
+  background-image: image-url("shutterstock_631520744.jpg");
+  background-size: contain;
+}
+
+.bg-image-touka{
+  width: 900px;
+  height: 600px;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.top-text{
+  padding-top: 250px;
+  font-size: 20px;
+  font-weight: bold;
+}
