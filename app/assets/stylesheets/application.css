@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+footer{
+  height: 50px;
+}
+
+footer > div{
+  padding-top: 10px;
+}
