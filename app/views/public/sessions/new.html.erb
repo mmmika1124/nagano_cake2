@@ -1,26 +1,29 @@
-<h2>Log in</h2>
+<div class="container">
+  <div class="text-center">
+    <h2>ログイン</h2>
+    <br>
+    <%= form_with model: @pablic, url: customer_session_path, local:true do |f| %>
+      <div class="field">
+        <%= f.label :email, 'メールアドレス', class:"col-sm-3" %>
+        <%= f.email_field :email, class:"col-sm-4" %>
+      </div>
 
-<%= form_with model: @pablic, url: customer_session_path do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <div class="field">
+        <%= f.label :password, 'パスワード', class:"col-sm-3" %>
+        <%= f.password_field :password, class:"col-sm-4" %>
+      </div>
+      <br>
+      <div class="actions">
+        <%= f.submit "ログイン" %>
+      </div>
+    <% end %>
+    <br>
+    <br>
+    <h2>すでに登録済の方</h2>
+    <br>
+    <div>
+    <%= render "public/shared/links" %>からログインしてください
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+</div>
