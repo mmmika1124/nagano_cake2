@@ -1,29 +1,63 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="text-center">
+    <h2>新規会員登録</h2>
+    <br>
+    <%= form_with model: @pablic, url: customer_registration_path, local:true do |f| %>
+      <%= render "public/shared/error_messages", resource: resource %>
 
-<%= form_with model: @pablic, url: customer_registration_path do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.label 'お名前', class:"col-sm-3" %>
+        <%= f.text_field :last_name, placeholder: "姓", class:"col-sm-2" %>
+        <%= f.text_field :first_name, placeholder: "名", class:"col-sm-2" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="field">
+        <%= f.label 'フリガナ', class:"col-sm-3" %>
+        <%= f.text_field :last_name_kana, placeholder: "セイ", class:"col-sm-2" %>
+        <%= f.text_field :first_name_kana, placeholder: "メイ", class:"col-sm-2" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email, 'メールアドレス', class:"col-sm-3" %>
+        <%= f.email_field :email, class:"col-sm-4" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :postal_code, '郵便番号', class:"col-sm-3" %>
+        <%= f.email_field :postal_code, placeholder: "ハイフンなし", class:"col-sm-4" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :address, '住所', class:"col-sm-3" %>
+        <%= f.email_field :address, class:"col-sm-4" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :telephone_number, '電話番号', class:"col-sm-3" %>
+        <%= f.email_field :telephone_number, placeholder: "ハイフンなし", class:"col-sm-4" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, 'パスワード（6文字以上）', class:"col-sm-3" %>
+        <%= f.password_field :password, class:"col-sm-4" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, 'パスワード（確認用）', class:"col-sm-3" %>
+        <%= f.password_field :password_confirmation, class:"col-sm-4" %>
+      </div>
+      <br>
+      <div class="actions">
+        <%= f.submit "新規登録" %>
+      </div>
+    <% end %>
+    <br>
+    <br>
+    <h2>すでに登録済の方</h2>
+    <br>
+    <div>
+      <%= render "public/shared/links" %>からログインしてください
+    </div>
+
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+</div>
