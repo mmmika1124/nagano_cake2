@@ -4,9 +4,20 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-  scope module: :public do
+  scope module: 'public' do
     root to: 'homes#top'
     get 'about' => 'homes#about'
+  end
+
+  scope module: 'public' do
+    get 'customers/mypage' => 'customers#show'
+    get 'customers/edit'
+    get 'customers/unsubscribe'
+    patch 'customers/withdraw' => 'customers#withdraw'
+    resources :customers, only: [:update]
+  end
+
+   scope module: 'public' do
     resources :items, only:[:index, :show]
   end
 

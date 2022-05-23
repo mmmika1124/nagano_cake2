@@ -2,7 +2,7 @@
   <div class="text-center">
     <h2>新規会員登録</h2>
     <br>
-    <%= form_with model: @pablic, url: customer_registration_path, local:true do |f| %>
+    <%= form_with model: @pablic, url: customer_registration_path, method: :POST,  local:true do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
 
       <div class="field">
@@ -24,17 +24,17 @@
 
       <div class="field">
         <%= f.label :postal_code, '郵便番号', class:"col-sm-3" %>
-        <%= f.email_field :postal_code, placeholder: "ハイフンなし", class:"col-sm-4" %>
+        <%= f.text_field :postal_code, placeholder: "ハイフンなし", class:"col-sm-4" %>
       </div>
 
       <div class="field">
         <%= f.label :address, '住所', class:"col-sm-3" %>
-        <%= f.email_field :address, class:"col-sm-4" %>
+        <%= f.text_field :address, class:"col-sm-4" %>
       </div>
 
       <div class="field">
         <%= f.label :telephone_number, '電話番号', class:"col-sm-3" %>
-        <%= f.email_field :telephone_number, placeholder: "ハイフンなし", class:"col-sm-4" %>
+        <%= f.text_field :telephone_number, placeholder: "ハイフンなし", class:"col-sm-4" %>
       </div>
 
       <div class="field">
