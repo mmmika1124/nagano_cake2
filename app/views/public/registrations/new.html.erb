@@ -2,7 +2,7 @@
   <div class="text-center">
     <h2>新規会員登録</h2>
     <br>
-    <%= form_with model: @pablic, url: customer_registration_path, method: :POST,  local:true do |f| %>
+    <%= form_with model: @customer, url: customer_registration_path, method: :POST, local:true do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
 
       <div class="field">
