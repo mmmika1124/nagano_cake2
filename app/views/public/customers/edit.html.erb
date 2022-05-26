@@ -1,2 +1,40 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<h1>会員情報編集</h1>
+<br>
+<%= form_with model: @customer, url: customer_path(@customer.id), zmethod: :POST, local:true do |f| %>
+  <div class="field">
+    <%= f.label 'お名前', class:"col-sm-2" %>
+    <%= f.text_field :last_name, placeholder: "姓", class:"col-sm-2" %>
+    <%= f.text_field :first_name, placeholder: "名", class:"col-sm-2" %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'フリガナ', class:"col-sm-2" %>
+    <%= f.text_field :last_name_kana, placeholder: "セイ", class:"col-sm-2" %>
+    <%= f.text_field :first_name_kana, placeholder: "メイ", class:"col-sm-2" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, 'メールアドレス', class:"col-sm-2" %>
+    <%= f.email_field :email, class:"col-sm-4" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postal_code, '郵便番号', class:"col-sm-2" %>
+    <%= f.text_field :postal_code, placeholder: "ハイフンなし", class:"col-sm-4" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address, '住所', class:"col-sm-2" %>
+    <%= f.text_field :address, class:"col-sm-4" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :telephone_number, '電話番号', class:"col-sm-2" %>
+    <%= f.text_field :telephone_number, placeholder: "ハイフンなし", class:"col-sm-4" %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "編集内容を保存" %>
+  </div>
+<% end %>
+
