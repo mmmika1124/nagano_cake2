@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # 顧客用
   scope module: 'public' do
     root to: 'homes#top'
@@ -20,8 +21,19 @@ Rails.application.routes.draw do
   # 管理者用
   namespace :admin do
     get '/' => 'homes#top'
+  end
+
+  namespace :admin do
+    get '/' => 'homes#top'
     resources :genres, only:[:index, :create, :edit, :update]
+  end
+
+  namespace :admin do
     resources :items, only:[:index, :new, :create, :show, :edit, :update]
+  end
+
+  namespace :admin do
+    resources :customers, only:[:index, :show, :edit, :update]
   end
 
   # 顧客用
