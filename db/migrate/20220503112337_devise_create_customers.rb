@@ -13,7 +13,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.string :postal_code, null: false, default: ""
       t.string :address, null: false, default: ""
       t.string :telephone_number, null: false, default: ""
-      t.string :is_active, null: false, default: "true"
+      t.boolean :is_active, null: false, default: "true"
 
       ## Recoverable
       t.string   :reset_password_token

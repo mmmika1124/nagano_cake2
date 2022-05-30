@@ -1,2 +1,50 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<h1><%= @customer.last_name + " " + @customer.first_name + "さんの会員情報編集" %></h1>
+<br>
+<%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :PATCH, local:true do |f| %>
+  <div class="field">
+    <%= f.label '氏名', class:"col-sm-2" %>
+    <%= f.text_field :last_name, placeholder: "姓", class:"col-sm-2" %>
+    <%= f.text_field :first_name, placeholder: "名", class:"col-sm-2" %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'フリガナ', class:"col-sm-2" %>
+    <%= f.text_field :last_name_kana, placeholder: "セイ", class:"col-sm-2" %>
+    <%= f.text_field :first_name_kana, placeholder: "メイ", class:"col-sm-2" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postal_code, '郵便番号', class:"col-sm-2" %>
+    <%= f.text_field :postal_code, placeholder: "ハイフンなし", class:"col-sm-4" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address, '住所', class:"col-sm-2" %>
+    <%= f.text_field :address, class:"col-sm-4" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :telephone_number, '電話番号', class:"col-sm-2" %>
+    <%= f.text_field :telephone_number, placeholder: "ハイフンなし", class:"col-sm-4" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, 'メールアドレス', class:"col-sm-2" %>
+    <%= f.email_field :email, class:"col-sm-4" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :is_active, '会員ステータス', class:"col-sm-2" %>
+    <%= f.radio_button :is_active, :true %>
+    <%= f.label :is_active, '有効', {value: :true, style: "display: inline-block;"} %>
+    <%= f.radio_button :is_active, :false %>
+    <%= f.label :is_active, '退会', {value: :false, style: "display: inline-block;"} %>
+  </div>
+
+  <br>
+  <div class="actions">
+    <%= f.submit "変更を保存" %>
+  </div>
+<% end %>
+
+

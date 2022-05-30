@@ -1,4 +1,4 @@
-<h1><%= @customer.last_name + "　" + @customer.first_name + "さんの会員詳細" %></h1>
+<h1><%= @customer.last_name + " " + @customer.first_name + "さんの会員詳細" %></h1>
 <table>
   <tr>
     <th>会員ID</th>
@@ -45,7 +45,7 @@
   <tr>
     <th>会員ステータス</th>
     <td>
-      <% if @customer.is_active == "true" %>
+      <% if @customer.is_active == true %>
         <div>有効</div>
       <% else %>
         <div>退会</div>

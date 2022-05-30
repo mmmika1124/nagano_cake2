@@ -1,6 +1,6 @@
 <h1>会員情報編集</h1>
 <br>
-<%= form_with model: @customer, url: customer_path(@customer.id), zmethod: :POST, local:true do |f| %>
+<%= form_with model: @customer, url: customer_path(@customer.id), method: :POST, local:true do |f| %>
   <div class="field">
     <%= f.label 'お名前', class:"col-sm-2" %>
     <%= f.text_field :last_name, placeholder: "姓", class:"col-sm-2" %>
