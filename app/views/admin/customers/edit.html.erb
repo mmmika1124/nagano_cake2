@@ -2,6 +2,11 @@
 <br>
 <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :PATCH, local:true do |f| %>
   <div class="field">
+    <%= f.label '会員ＩＤ', class:"col-sm-2" %>
+    <%= @customer.id %>
+  </div>
+
+  <div class="field">
     <%= f.label '氏名', class:"col-sm-2" %>
     <%= f.text_field :last_name, placeholder: "姓", class:"col-sm-2" %>
     <%= f.text_field :first_name, placeholder: "名", class:"col-sm-2" %>
