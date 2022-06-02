@@ -14,8 +14,12 @@ Rails.application.routes.draw do
     resources :customers, only: [:update]
   end
 
-   scope module: 'public' do
+  scope module: 'public' do
     resources :items, only:[:index, :show]
+  end
+
+  scope module: 'public' do
+    resources :addresses, only:[:index, :edit, :create, :update, :destroy]
   end
 
   # 管理者用
