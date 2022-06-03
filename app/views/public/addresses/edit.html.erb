@@ -1,2 +1,22 @@
-<h1>Public::Addresses#edit</h1>
-<p>Find me in app/views/public/addresses/edit.html.erb</p>
+<h1>配送先編集</h1>
+<br>
+<%= form_with model: @address, url: address_path, method: :PATCH, local:true do |f| %>
+  <div class="field">
+    <%= f.label :postal_code, '郵便番号(ハイフンなし)', class:"col-sm-2" %>
+    <%= f.text_field :postal_code, class:"col-sm-2" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address, '住所', class:"col-sm-2" %>
+    <%= f.text_field :address, class:"col-sm-4" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name, '宛名', class:"col-sm-2" %>
+    <%= f.text_field :name, class:"col-sm-2" %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "変更内容を保存" %>
+  </div>
+<% end %>

@@ -38,7 +38,7 @@
       <td><%= address.name %></td>
       <td>
         <%= link_to "編集する", edit_address_path(address.id) %>
-        <%= link_to "削除する", address_path(address.id), method: :DELETE %>
+        <%= link_to "削除する", address_path(address.id), method: :DELETE, data: {confirm: "削除しますか？"} %>
       </td>
     </tr>
     <% end %>
