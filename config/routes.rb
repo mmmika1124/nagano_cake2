@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # 顧客用
   scope module: 'public' do
     root to: 'homes#top'
@@ -20,6 +19,11 @@ Rails.application.routes.draw do
 
   scope module: 'public' do
     resources :addresses, only:[:index, :edit, :create, :update, :destroy]
+  end
+
+  scope module: 'public' do
+    resources :addresses, only:[:index, :create, :update, :destroy]
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
   end
 
   # 管理者用
