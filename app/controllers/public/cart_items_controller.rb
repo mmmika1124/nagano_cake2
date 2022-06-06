@@ -9,6 +9,7 @@ class Public::CartItemsController < ApplicationController
   end
 
   def index
+    @cart_items = current_customer.cart_items
   end
 
   def update
@@ -18,6 +19,9 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
+    cart_items = current_customer.cart_item
+    cart_items.destroy_all
+    redirect_to cart_items_path
   end
 
   private
