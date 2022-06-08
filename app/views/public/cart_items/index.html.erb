@@ -22,7 +22,7 @@
           <td><%= (cart_item.item.with_tax_price).to_s(:delimited) %></td>
           <td>
             <%= form_with model:@cart_item, url:cart_item_path(cart_item.id), method: :PATCH, local: true do |f| %>
-              <%= f.select :amount, *[1..5], {selected: cart_item.amount} %>
+              <%= f.select :amount, *[1..10], {selected: cart_item.amount} %>
               <%= f.submit "変更" %>
             <% end %>
           </td>
@@ -32,7 +32,17 @@
       <% end %>
     </tbody>
   </table>
-  <div></div>
+  <br>
+  <table>
+    <tr>
+      <th>合計金額</th>
+      <td><%= @total.to_s(:delimited) %>円</td>
+    </tr>
+  </table>
+　<br>
+  <div><%= link_to "買い物を続ける", items_path %></div>
+  <br>
+  <div>情報入力画面へ進む</div>
 <% else %>
   <p>カートに登録されている商品はありません。</p>
 <% end %>
