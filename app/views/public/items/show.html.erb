@@ -11,12 +11,11 @@
         <div class="col-5">
           <h3><%= @item.name %></h3><br>
           <div><%= @item.introduction %></div><br><br>
-          <h5><%= ((@item.price*1.1).floor).to_s(:delimited) %>円(税込)</h5><br>
+          <h5><%= (@item.with_tax_price).to_s(:delimited) %>円(税込)</h5><br>
 
           <% if customer_signed_in? %>
             <%= form_with model:@cart_item, url:cart_items_path, method: :POST, local: true do |f| %>
               <%= f.hidden_field :item_id, :value => @item.id %>
-              <%= f.hidden_field :customer_id, :value => current_customer.id %>
               <%= f.select :amount, *[1..5], include_blank: "個数選択" %>
               <%= f.submit "カートに入れる" %>
             <% end %>

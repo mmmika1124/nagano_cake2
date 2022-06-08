@@ -25,7 +25,7 @@
               <%= link_to "商品一覧", items_path, class:"btn btn-outline-dark mr-2" %>
             </li>
             <li>
-              カート
+              <%= link_to "カート", cart_items_path, class:"btn btn-outline-dark mr-2" %>
             </li>
             <li>
               <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class:"btn btn-outline-dark mr-2" %>
