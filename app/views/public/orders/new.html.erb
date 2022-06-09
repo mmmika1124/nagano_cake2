@@ -1,2 +1,12 @@
-<h1>Public::Orders#new</h1>
-<p>Find me in app/views/public/orders/new.html.erb</p>
+<h1>注文情報入力</h1>
+<br>
+<div>
+  <h4>支払方法</h4>
+  <%= form_with model:@order, url:orders_confirm_path, method: :POST, local: true do |f| %>
+
+  <% end %>
+</div>
+<br>
+<div>
+  <h4>お届け先</h4>
+</div>
