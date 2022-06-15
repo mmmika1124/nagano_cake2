@@ -42,3 +42,14 @@
 <h4>お届け先</h4>
 <div>〒<%= @order.postal_code + " " + @order.address %></div>
 <div><%= @order.name %></div>
+<br>
+<%= form_with model: @order, url: orders_path, method: :POST, local: true do |f| %>
+ <%= f.hidden_field :customer_id, value: current_customer.id %>
+ <%= f.hidden_field :postal_code, value: @order.postal_code %>
+ <%= f.hidden_field :address, value: @order.address %>
+ <%= f.hidden_field :name, value: @order.name %>
+ <%= f.hidden_field :shipping_cost, value: @order.shipping_cost %>
+ <%= f.hidden_field :total_payment, value: @sum %>
+ <%= f.hidden_field :payment_method, value: @order.payment_method %>
+ <%= f.submit "注文を確定する" %>
+<% end %>
