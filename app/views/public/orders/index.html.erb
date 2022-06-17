@@ -14,19 +14,19 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><% order.created_at %></td>
+        <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
         <td>
           〒<%= order.postal_code %>
           <%= order.address %>
           <%= order.name %>
         </td>
         <td>
-          <% order_details.each do |order_detail| %>
-            <%= order.order_detail.item.name %>
+          <% order.order_details.each do |order_detail| %>
+            <%= order_detail.item.name %>
           <% end %>
         </td>
-        <td><%= order.order_detail.price.to_s(:delimited) %>円</td>
-        <td><%= order.status %></td>
+        <td><%= (order.total_payment + order.shipping_cost).to_s(:delimited) %>円</td>
+        <td><%= order.status_i18n %></td>
         <td></td>
       </tr>
       <% end %>
