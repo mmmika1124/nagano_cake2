@@ -43,6 +43,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_customer.orders
   end
 
   def show
