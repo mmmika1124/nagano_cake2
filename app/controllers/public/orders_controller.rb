@@ -36,7 +36,7 @@ class Public::OrdersController < ApplicationController
       order_detail = order.order_details.new
       order_detail.item_id = cart_item.item_id
       order_detail.amount = cart_item.amount
-      order_detail.price = cart_item.item.price
+      order_detail.price = cart_item.item.price * 1.1
       order_detail.save
     end
     cart_items.destroy_all
@@ -48,6 +48,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
   end
 
   private
