@@ -51,6 +51,10 @@ Rails.application.routes.draw do
     resources :customers, only:[:index, :show, :edit, :update]
   end
 
+  namespace :admin do
+    resources :orders, only:[:show, :update]
+  end
+
   # 顧客用
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
