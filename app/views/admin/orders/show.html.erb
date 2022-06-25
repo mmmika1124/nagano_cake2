@@ -51,7 +51,7 @@
         <td><%= order_detail.amount %></td>
         <td><%= (order_detail.price * order_detail.amount).to_s(:delimited) %></td>
         <td>
-          <%= form_with model:@order_detail, url:admin_order_detail_path, method: :PATCH, local: true do |f| %>
+          <%= form_with model:order_detail, url:admin_order_detail_path(order_detail.id), method: :PATCH, local: true do |f| %>
             <%= f.select :making_status, OrderDetail.making_statuses_i18n.keys.map{|k| [I18n.t("enums.order_detail.making_status.#{k}"), k]} %>
             <%= f.submit "更新" %>
           <% end %>
