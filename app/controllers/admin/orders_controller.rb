@@ -6,7 +6,9 @@ class Admin::OrdersController < ApplicationController
 
   def update
     order = Order.find(params[:id])
-    order.update(status: params[:order][:status])
+    if order.update(status: params[:order][:status]) && order.confirmed?
+      order.order_details.update_all(making_status: 1)
+    end
     redirect_to admin_order_path
   end
 
