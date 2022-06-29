@@ -13,6 +13,7 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
+import "jquery.bxslider.min"
 
 Rails.start()
 Turbolinks.start()

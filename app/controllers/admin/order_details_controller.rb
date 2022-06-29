@@ -3,9 +3,9 @@ class Admin::OrderDetailsController < ApplicationController
     order = order_detail_params[:order_id]
     order_detail = OrderDetail.find(params[:id])
     if order_detail.update(making_status: params[:order_detail][:making_status]) && order_detail.making?
-      order.update(making_status: 2)
+      order.update(making_status: 3)
     else order_detail.completed?
-      order.update(making_status: 2)
+      order.update(making_status: 5)
     end
      redirect_back(fallback_location: root_path)
   end
