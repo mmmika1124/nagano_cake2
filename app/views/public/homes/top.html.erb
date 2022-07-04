@@ -1,4 +1,20 @@
-
+<!--bxslider（画像スライダー）-->
+<script>
+  $(document).ready(function(){
+    $('.bxslider').bxSlider({
+      auto: true,
+      speed: 400,
+      pause: 3500,
+      pager: false,
+      slideWidth: 200,
+      maxSlides: 4,
+      minSlides: 4,
+      moveSlides: 1,
+      touchEnabled:false,
+      autoControls: false
+    });
+  });
+</script>
 
 <div class="container">
   <div class="row">
@@ -24,13 +40,15 @@
         <h2>新着商品</h2>
       </div>
       <div class="row">
-        <% @items.first(4).each do |item| %>
-          <div class="col-3 ">
-            <%= link_to item_path(item.id) do %>
-              <%= attachment_image_tag item, :image, format: 'jpg', size: "200x200" %><br>
-            <% end %>
-          </div>
-        <% end %>
+        <ul class="bxslider">
+          <% @items.first(4).each do |item| %>
+            <div class="col-4">
+              <%= link_to item_path(item.id) do %>
+                <%= attachment_image_tag item, :image, format: 'jpg', size: "170x170" %><br>
+              <% end %>
+            </div>
+          <% end %>
+        </ul>
       </div>
       <br>
       <div class="text-right">
